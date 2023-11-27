@@ -1,0 +1,71 @@
+﻿<Window x:Class="Labb2.Databas.Ebooks.Views.CreateNewBook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Labb2.Databas.Ebooks.Views"
+        mc:Ignorable="d"
+        Title="CreateNewBook" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="5" HorizontalAlignment="Center" Text="Add New Book To Youre Collection" FontSize="45" FontWeight="DemiBold"/>
+        <TextBlock Text="Select A Author To Add A New Title To" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" />
+        <ListBox x:Name="ListOfAuthors"  Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="2" IsEnabled="True" SelectionChanged="ListOfAuthors_Changed">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding FirstName}"/>
+                        <TextBlock Text="{Binding LastName}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBlock Text="Add A New Information to The Book" Grid.Column="4" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBox x:Name="TitleBox" Text="Title" Grid.Column="4" Grid.Row="4" Width="150" Height="30" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="IsbnBox" Text="ISBN" Grid.Column="5" Grid.Row="4" Width="150" Height="30" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="CategoryBox" Text="Category" Grid.Column="4" Grid.Row="5" Width="150" Height="30" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="LanguegeBox" Text="Languege" Grid.Column="5" Grid.Row="5" Width="150" Height="30" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="PriceBox" Text="Price" Grid.Column="4" Grid.Row="6" Width="150" Height="30" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="RealeseBox" Text="Realease Date" Grid.Column="5" Grid.Row="6" Width="150" Height="30" VerticalAlignment="Bottom"/>
+        <Button x:Name="AddNewTitleBtn" Grid.Column="4" Grid.Row="7" Width="150" Height="30" Content="Add New Book" Click="AddNewBookToAuthor_Click" />
+
+        <TextBlock Text="Add New Author" Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+        <TextBox x:Name="FirstName" Text="FirstName" Grid.Column="4" Grid.Row="2" Height="30" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="LastName" Text="LastName" Grid.Column="5" Grid.Row="2" Height="30" VerticalAlignment="Bottom"/>
+
+        <Button x:Name="AddAuthorBtn" Grid.Column="4" Grid.Row="3" Content="Add Author" Width="150" Height="30" Click="AddAuthorBtn_Click"/>
+        <ListBox x:Name="ListOfTitles" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Title}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBlock Text="Select Youre Title To Add Information About the book" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2"/>
+        <Button x:Name="DeleteAuthorBtn" Grid.Column="5" Grid.Row="3" Content="Delete Author" Width="150" Height="30" Click="DeleteAuthorBtn_Click"/>
+        <Button x:Name="DeleteBookBtn" Grid.Column="5" Grid.Row="7" Content="Delete Book" Width="150" Height="30" Click="DeleteBookBtn_Click"/>
+        <Button x:Name="GoBackBtn" Grid.Column="3" Grid.Row="7" Width="140" Height="30" Content="Go Back" Click="GoBackBtn_Click"/>
+    </Grid>
+</Window>
